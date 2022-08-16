@@ -6,7 +6,6 @@ import javax.persistence.*;
 @Entity
 public class Transaction {
 
-
     @GeneratedValue
     @Id
     private int id;

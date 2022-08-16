@@ -1,15 +1,34 @@
 package com.reward.rewardsystem.controller;
 
+import com.reward.rewardsystem.entity.Customer;
+import com.reward.rewardsystem.service.CustomerRewardService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class CustomerRewardsController {
 
+    CustomerRewardService customerRewardService;
+
+//    @GetMapping("/customers")
+//    private List<Customer> getAllPersons(){
+//        return customerRewardService.findAll();
+//    }
+
+    @GetMapping("/customer/{id}")
+    private Customer getPerson(@PathVariable("id") int id) {
+        return customerRewardService.getPersonById(id);
+    }
+
+    @PostMapping("/customer")
+    private int savePerson(@RequestBody Customer customer) {
+        customerRewardService.saveOrUpdate(customer);
+        return customer.getId();
+    }
 
 
 

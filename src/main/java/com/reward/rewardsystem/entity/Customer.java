@@ -22,7 +22,7 @@ public class Customer {
 
     }
 
-    public Customer(int id,int customerId,int amount, int orderDate) {
+    public Customer( int customerId,int amount, int orderDate) {
         this.id = id;
         this.customerId = customerId;
         this.amount = amount;
@@ -37,6 +37,8 @@ public class Customer {
         return amount;
     }
 
+
+    public int getOrderDate() {return orderDate;}
 
 
 //    @Override
